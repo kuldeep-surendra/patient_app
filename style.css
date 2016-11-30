@@ -1,0 +1,13 @@
+li{
+	list-style: none;
+}
+.list{
+	background-color: grey;
+	margin-bottom: 20px;
+}
+label{
+	color: green;
+}
+.well-bg{
+	background-color: grey;
+}

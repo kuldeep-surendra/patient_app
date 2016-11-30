@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script type="text/javascript" src='script.js'></script>	
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body  ng-controller="mainCtrl as patient">
+<center>
+	<h2>patient Application form</h2>
+</center>
+<div ng-model="patient.message">
+	<h4>{{patient.message}}</h4>
+</div>
+<form name='form' ng-submit="submit()" novalidate>
+	<div class="container well well-bg">
+		<div class="form-group" ng-class="{'has-error': form.fname.$invalid}">
+			firstname:<input type="textbox" name="fname" ng-model=patient.firstname class="form-control" required><br>
+			<span class="help-block" ng-show="form.fname.$error.required">Required</span>
+		</div>
+		<div class="form-group" ng-class="{'has-error': form.lname.$invalid}">
+			lastname:<input type="textbox" name="lname" ng-model=patient.lastname class="form-control" required><br>
+			<span class="help-block" ng-show="form.lname.$error.required">Required</span>
+		</div>
+		<div class="form-group" ng-class="{'has-error': form.age.$invalid}">
+			age:<input type="textbox" name="age" ng-model=patient.age class="form-control" required><br>
+			<span class="help-block" ng-show="form.age.$error.required">Required</span>
+		</div>
+		<div class="form-group" ng-class="{'has-error': form.dob.$invalid}">
+			dob:<input type="date" name="dob" ng-model=patient.dob class="form-control" required><br>
+			<span class="help-block" ng-show="form.dob.$error.required">Required</span>
+		</div>
+		<div class="form-group" ng-class="{'has-error': form.phone.$invalid}">
+			phone:<input type="string" name="phone" ng-model="patient.phone" class="form-control" required><br>
+			<span class="help-block" ng-show="form.phone.$error.required">Required</span>
+		</div>
+		<div class="form-group" ng-class="{'has-error': form.desc.$invalid}">
+			description:
+			<textarea rows="4" cols="50" ng-model="patient.description" class="form-control" name="desc" required></textarea><br>
+			<span class="help-block" ng-show="form.desc.$error.required">Required</span>
+		</div>
+		gender:  <select name="gender" ng-model=patient.gender><br>
+							<option value="" disabled selected>gender</option>
+	    				<option value="male">male</option><br>
+	    				<option value="female">female</option><br>
+	  				</select><br>
+	  		<button ng-click='patient.callSubmit()' ng-disabled="!form.$valid" class="btn btn-md btn-primary">submit</button>
+	  		<button ng-click='patient.callDetails()' class="btn btn-md btn-primary">view patients</button>
+  	</div>
+</form>
+
+</body>
+</html>

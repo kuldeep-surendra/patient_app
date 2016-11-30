@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title></title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<script type="text/javascript" src='patients.js'></script>
+</head>
+<body>
+<center>
+	<h2>Patients directory</h2>
+</center>
+	<div>
+		<input type='text' placeholder="search" ng-model="search" style="margin-left:1000px;">
+	</div>
+<div>
+  <ul ng-controller="mainCtrl as patients">
+    <li ng-repeat="x in patients.details | filter:search">
+     <div class=" container well list">	Name: <label>{{x.firstname}}</label><br>
+     	<div ng-init="a = x.id"></div>
+    
+
+      <button type="button" class="btn btn-sm btn-info" data-toggle="collapse" data-target="#demo-{{a}}">view</button><br><br>
+	  	<div id="demo-{{a}}" class="collapse">
+				Firstname:  {{x.firstname}}<br>
+	        Lastname:  {{x.lastname}}<br>
+	        Age:  {{x.age}}<br>
+	        Dob:  {{x.dob}}<br>
+	        Phone:  {{x.phone}}<br>
+	        Gender:  {{x.gender}}<br>
+	        Description:  {{x.description}}<br>  		
+	  	</div>
+  	</div>
+ 
+    </li>       
+  </ul>
+</div>
+
+</body>
+</html>
