@@ -1,0 +1,8 @@
+# patient_app
+frontend: HTML,CSS,Bootstrap,Angularjs
+
+backend:Ruby on Rails
+
+Database:postgres
+
+requirements:Ruby,Rails version 4.2.7.1
